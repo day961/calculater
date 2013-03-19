@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'widget.ui'
 **
-** Created: Tue Mar 19 11:36:34 2013
+** Created: Tue Mar 19 21:03:43 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -50,7 +50,7 @@ public:
     QPushButton *dot;
     QPushButton *del;
     QVBoxLayout *verticalLayout_2;
-    QPushButton *pushButton;
+    QPushButton *pone;
     QPushButton *add;
     QPushButton *sub;
     QPushButton *mul;
@@ -184,10 +184,10 @@ public:
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        pushButton = new QPushButton(layoutWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pone = new QPushButton(layoutWidget);
+        pone->setObjectName(QString::fromUtf8("pone"));
 
-        verticalLayout_2->addWidget(pushButton);
+        verticalLayout_2->addWidget(pone);
 
         add = new QPushButton(layoutWidget);
         add->setObjectName(QString::fromUtf8("add"));
@@ -243,7 +243,7 @@ public:
         num0->setText(QApplication::translate("Widget", "0", 0, QApplication::UnicodeUTF8));
         dot->setText(QApplication::translate("Widget", ".", 0, QApplication::UnicodeUTF8));
         del->setText(QApplication::translate("Widget", "del", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("Widget", "\302\261", 0, QApplication::UnicodeUTF8));
+        pone->setText(QApplication::translate("Widget", "\302\261", 0, QApplication::UnicodeUTF8));
         add->setText(QApplication::translate("Widget", "+", 0, QApplication::UnicodeUTF8));
         sub->setText(QApplication::translate("Widget", "-", 0, QApplication::UnicodeUTF8));
         mul->setText(QApplication::translate("Widget", "*", 0, QApplication::UnicodeUTF8));

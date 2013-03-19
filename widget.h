@@ -10,11 +10,11 @@ class Widget;
 class Widget : public QWidget
 {
     Q_OBJECT
-    
+
 public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
-    
+
 private slots:
     void on_num1_clicked();
     void on_num2_clicked();
@@ -37,17 +37,17 @@ private slots:
 
 private:
     Ui::Widget *ui;
-    void state_init();//¼ÆËãÆ÷×´Ì¬³õÊ¼»¯º¯Êı
-    void cul_result(void);//¼ÆËã½á¹ûº¯Êı
-    void display(double num);//lineEditÏÔÊ¾º¯Êı
-    void pretrans(char key,char select); ////////Î´Íê³É
-    void trans(char key);//½²°´¼üÊäÈë×ª»»³ÉÊıÖµ
-    bool state; //ÅĞ¶ÏÊÇµÚÒ»´ÎÊäÈë»¹ÊÇµÚ¶ş´ÎÊäÈë  trueÎªµÚÒ»´Î falseÎªµÚ¶ş´Î
-    bool equ_state;//ÅĞ¶ÏµÈºÅ×´Ì¬ trueÎªµÈºÅ°´¹ı falseÎªµÈºÅÎ´°´¹ı
-    enum sign {ADD,SUB,MUL,DIV,NO}cur_sign;//±ê¼Çµ±Ç°ÔËËã×´Ì¬
-    double first;  //´æ·ÅµÚÒ»´ÎÊäÈëµÄÊıÖµ
-    double second; //´æ·ÅµÚ¶ş´ÎÊäÈëµÄÊıÖµ
-    double result; //´æ·Å¼ÆËã½á¹û
+    void state_init();//è®¡ç®—å™¨çŠ¶æ€åˆå§‹åŒ–å‡½æ•°
+    void cul_result(void);//è®¡ç®—ç»“æœå‡½æ•°
+    void display(double num);//lineEditæ˜¾ç¤ºå‡½æ•°
+    void pretrans(char key,char select); ////////æœªå®Œæˆ
+    void trans(char key);//è®²æŒ‰é”®è¾“å…¥è½¬æ¢æˆæ•°å€¼
+    bool state; //åˆ¤æ–­æ˜¯ç¬¬ä¸€æ¬¡è¾“å…¥è¿˜æ˜¯ç¬¬äºŒæ¬¡è¾“å…¥  trueä¸ºç¬¬ä¸€æ¬¡ falseä¸ºç¬¬äºŒæ¬¡
+    bool equ_state;//åˆ¤æ–­ç­‰å·çŠ¶æ€ trueä¸ºç­‰å·æŒ‰è¿‡ falseä¸ºç­‰å·æœªæŒ‰è¿‡
+    enum sign {ADD,SUB,MUL,DIV,NO}cur_sign;//æ ‡è®°å½“å‰è¿ç®—çŠ¶æ€
+    double first;  //å­˜æ”¾ç¬¬ä¸€æ¬¡è¾“å…¥çš„æ•°å€¼
+    double second; //å­˜æ”¾ç¬¬äºŒæ¬¡è¾“å…¥çš„æ•°å€¼
+    double result; //å­˜æ”¾è®¡ç®—ç»“æœ
 };
 
 #endif // WIDGET_H

@@ -15,7 +15,7 @@ Widget::~Widget()
     delete ui;
 }
 
-/****¼ÆËãÆ÷×´Ì¬³õÊ¼»¯º¯Êı*******/
+/****è®¡ç®—å™¨çŠ¶æ€åˆå§‹åŒ–å‡½æ•°*******/
 void Widget::state_init()
 {
     state = true;
@@ -26,20 +26,20 @@ void Widget::state_init()
     result = 0;
 }
 
-/***¼ÆËã½á¹ûº¯Êı******/
+/***è®¡ç®—ç»“æœå‡½æ•°******/
 void Widget::cul_result(void)
 {
     switch(cur_sign)
     {
-        case ADD:result=first+second;break;//¼ÓµÄÇé¿ö
-        case SUB:result=first-second;break;//¼õµÄÇé¿ö
+        case ADD:result=first+second;break;//åŠ çš„æƒ…å†µ
+        case SUB:result=first-second;break;//å‡çš„æƒ…å†µ
         case MUL:result=first*second;break;
         case DIV:result=(first*1.00)/second;break;
     }
-        display(result);//ÏÔÊ¾½á¹û
+        display(result);//æ˜¾ç¤ºç»“æœ
 }
 
-/****lineEditÏÔÊ¾º¯Êı*********/
+/****lineEditæ˜¾ç¤ºå‡½æ•°*********/
 void Widget::display(double num)
 {
     ui->lineEdit->setText(QString::number(num));
@@ -47,7 +47,7 @@ void Widget::display(double num)
 
 void Widget::pretrans(char key,char select)
 {
-    if(key=='d')//Èç¹û°´ÏÂÉ¾³ı¼ü
+    if(key=='d')//å¦‚æœæŒ‰ä¸‹åˆ é™¤é”®
     {
         first = first / 10;
         display(first);
@@ -55,15 +55,15 @@ void Widget::pretrans(char key,char select)
     else
     {
         first  = first  *10 + (double)key;
-        display(first);//ÏÔÊ¾µ½lineEditÉÏ
+        display(first);//æ˜¾ç¤ºåˆ°lineEditä¸Š
     }
 }
 
-/****¼ÆËã°´¼üºóµÄÊıÖµ ²¢ÏÔÊ¾ÔÚlineEdit*****/
+/****è®¡ç®—æŒ‰é”®åçš„æ•°å€¼ å¹¶æ˜¾ç¤ºåœ¨lineEdit*****/
 void Widget::trans(char key)
 {
-    //ÅĞ¶ÏµÈÓÚ°´¼ü×´Ì¬ Èç¹ûÎªtureËµÃ÷±¾´Î°´¼ü²Ù×÷Ê¹Ò»´ÎĞÂµÄ¼ÆËã²Ù×÷
-    //Ôò³õÊ¼»¯¼ÆËãÆ÷×´Ì¬
+    //åˆ¤æ–­ç­‰äºæŒ‰é”®çŠ¶æ€ å¦‚æœä¸ºtureè¯´æ˜æœ¬æ¬¡æŒ‰é”®æ“ä½œä½¿ä¸€æ¬¡æ–°çš„è®¡ç®—æ“ä½œ
+    //åˆ™åˆå§‹åŒ–è®¡ç®—å™¨çŠ¶æ€
     if(equ_state == true)
     {
         state_init();
@@ -72,12 +72,12 @@ void Widget::trans(char key)
 
     if(state == true)
     {
-        if(key=='d')//Èç¹û°´ÏÂÉ¾³ı¼ü
+        if(key=='d')//å¦‚æœæŒ‰ä¸‹åˆ é™¤é”®
         {
             first = first / 10;
             display(first);
         }
-        if(key=='N')//Èç¹û°´ÏÂÕı¸º
+        if(key=='N')//å¦‚æœæŒ‰ä¸‹æ­£è´Ÿ
         {
             first = first * -1;
             display(first);
@@ -85,17 +85,17 @@ void Widget::trans(char key)
         else
         {
             first  = first  *10 + (double)key;
-            display(first);//ÏÔÊ¾µ½lineEditÉÏ
+            display(first);//æ˜¾ç¤ºåˆ°lineEditä¸Š
         }
     }
     else
     {
-        if(key=='d')//Èç¹û°´ÏÂÉ¾³ı¼ü
+        if(key=='d')//å¦‚æœæŒ‰ä¸‹åˆ é™¤é”®
         {
             second = second / 10;
             display(second);
         }
-        if(key=='N')//Èç¹û°´ÏÂÕı¸º
+        if(key=='N')//å¦‚æœæŒ‰ä¸‹æ­£è´Ÿ
         {
             first = first * -1;
             display(first);
@@ -103,49 +103,49 @@ void Widget::trans(char key)
         else
         {
             second = second *10 + (double)key;
-            display(second);//ÏÔÊ¾
+            display(second);//æ˜¾ç¤º
         }
     }
 }
 
-/*******Êı×Ö¼ü°´Å¥¹¦ÄÜ*******/
-void Widget::on_num1_clicked()//°´¼ü 1
+/*******æ•°å­—é”®æŒ‰é’®åŠŸèƒ½*******/
+void Widget::on_num1_clicked()//æŒ‰é”® 1
 {
     trans(1);
 }
-void Widget::on_num2_clicked()//°´¼ü 2
+void Widget::on_num2_clicked()//æŒ‰é”® 2
 {
     trans(2);
 }
-void Widget::on_num3_clicked()//°´¼ü 3
+void Widget::on_num3_clicked()//æŒ‰é”® 3
 {
     trans(3);
 }
-void Widget::on_num4_clicked()//°´¼ü 4
+void Widget::on_num4_clicked()//æŒ‰é”® 4
 {
     trans(4);
 }
-void Widget::on_num5_clicked()//°´¼ü 5
+void Widget::on_num5_clicked()//æŒ‰é”® 5
 {
     trans(5);
 }
-void Widget::on_num6_clicked()//°´¼ü 6
+void Widget::on_num6_clicked()//æŒ‰é”® 6
 {
     trans(6);
 }
-void Widget::on_num7_clicked()//°´¼ü 7
+void Widget::on_num7_clicked()//æŒ‰é”® 7
 {
     trans(7);
 }
-void Widget::on_num8_clicked()//°´¼ü 8
+void Widget::on_num8_clicked()//æŒ‰é”® 8
 {
     trans(8);
 }
-void Widget::on_num9_clicked()//°´¼ü 9
+void Widget::on_num9_clicked()//æŒ‰é”® 9
 {
     trans(9);
 }
-void Widget::on_num0_clicked()//°´¼ü 0
+void Widget::on_num0_clicked()//æŒ‰é”® 0
 {
     trans(0);
 }
@@ -153,18 +153,18 @@ void Widget::on_pushButton_clicked()
 {
     trans('N');
 }
-/****clrÇå¿Õ°´¼ü*******/
+/****clræ¸…ç©ºæŒ‰é”®*******/
 void Widget::on_clr_clicked()
 {
     ui->lineEdit->setText("0");
     state_init();
 }
 
-/****¼ÓºÅ°´¼ü*********/
+/****åŠ å·æŒ‰é”®*********/
 void Widget::on_add_clicked()
 {
-    equ_state = false;//ÖØÖÃµÈºÅ×´Ì¬
-    if(state == false)//Á¬Ğø¼ÓµÄÇé¿ö
+    equ_state = false;//é‡ç½®ç­‰å·çŠ¶æ€
+    if(state == false)//è¿ç»­åŠ çš„æƒ…å†µ
     {
         cul_result();
         first = result;
@@ -174,14 +174,14 @@ void Widget::on_add_clicked()
     {
         state = false;
     }
-    cur_sign = ADD;//±¾´Î¼ÆËãÎª¼Ó·¨
+    cur_sign = ADD;//æœ¬æ¬¡è®¡ç®—ä¸ºåŠ æ³•
 }
 
-/****¼õºÅ°´¼ü*********/
+/****å‡å·æŒ‰é”®*********/
 void Widget::on_sub_clicked()
 {
-    equ_state = false;//ÖØÖÃµÈºÅ×´Ì¬
-    if(state == false)//Á¬Ğø¼õµÄÇé¿ö
+    equ_state = false;//é‡ç½®ç­‰å·çŠ¶æ€
+    if(state == false)//è¿ç»­å‡çš„æƒ…å†µ
     {
         cul_result();
         first = result;
@@ -191,13 +191,13 @@ void Widget::on_sub_clicked()
     {
         state = false;
     }
-    cur_sign = SUB;//±¾´Î¼ÆËãÎª¼õ·¨
+    cur_sign = SUB;//æœ¬æ¬¡è®¡ç®—ä¸ºå‡æ³•
 }
 
-/****µÈºÅ°´¼ü*********/
+/****ç­‰å·æŒ‰é”®*********/
 void Widget::on_equ_clicked()
 {
-    if(equ_state == true)//Á¬Ğø°´µÈºÅ¡ª¡ªÁ¬Ğø¼ÆËãµÄÇé¿ö
+    if(equ_state == true)//è¿ç»­æŒ‰ç­‰å·â€”â€”è¿ç»­è®¡ç®—çš„æƒ…å†µ
         first = result;
     cul_result();
     equ_state = true;
@@ -209,11 +209,11 @@ void Widget::on_del_clicked()
     trans('d');
 }
 
-/****³ËºÅ°´¼ü*********/
+/****ä¹˜å·æŒ‰é”®*********/
 void Widget::on_mul_clicked()
 {
-    equ_state = false;//ÖØÖÃµÈºÅ×´Ì¬
-    if(state == false)//Á¬Ğø³ËµÄÇé¿ö
+    equ_state = false;//é‡ç½®ç­‰å·çŠ¶æ€
+    if(state == false)//è¿ç»­ä¹˜çš„æƒ…å†µ
     {
         cul_result();
         first = result;
@@ -223,14 +223,14 @@ void Widget::on_mul_clicked()
     {
         state = false;
     }
-    cur_sign = MUL;//±¾´Î¼ÆËãÎª³Ë·¨
+    cur_sign = MUL;//æœ¬æ¬¡è®¡ç®—ä¸ºä¹˜æ³•
 }
 
-/****³ıºÅ°´¼ü*********/
+/****é™¤å·æŒ‰é”®*********/
 void Widget::on_div_clicked()
 {
-    equ_state = false;//ÖØÖÃµÈºÅ×´Ì¬
-    if(state == false)//Á¬Ğø³ıµÄÇé¿ö
+    equ_state = false;//é‡ç½®ç­‰å·çŠ¶æ€
+    if(state == false)//è¿ç»­é™¤çš„æƒ…å†µ
     {
         cul_result();
         first = result;
@@ -240,7 +240,7 @@ void Widget::on_div_clicked()
     {
         state = false;
     }
-    cur_sign = DIV;//±¾´Î¼ÆËãÎª³ı·¨
+    cur_sign = DIV;//æœ¬æ¬¡è®¡ç®—ä¸ºé™¤æ³•
 }
 
 
