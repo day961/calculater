@@ -153,6 +153,14 @@ void Widget::on_pushButton_clicked()
 {
     trans('N');
 }
+void Widget::on_del_clicked()
+{
+    trans('d');
+}
+void Widget::on_pone_clicked()
+{
+    trans('p');
+}
 /****clr清空按键*******/
 void Widget::on_clr_clicked()
 {
@@ -204,10 +212,7 @@ void Widget::on_equ_clicked()
     //cur_sign = NO;
 }
 
-void Widget::on_del_clicked()
-{
-    trans('d');
-}
+
 
 /****乘号按键*********/
 void Widget::on_mul_clicked()
@@ -242,5 +247,7 @@ void Widget::on_div_clicked()
     }
     cur_sign = DIV;//本次计算为除法
 }
+
+
 
 

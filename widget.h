@@ -35,6 +35,8 @@ private slots:
     void on_div_clicked();
     void on_pushButton_clicked();
 
+    void on_pone_clicked();
+
 private:
     Ui::Widget *ui;
     void state_init();//计算器状态初始化函数
